@@ -2,6 +2,15 @@ const express = require('express');
 const PropertyController = require('../controllers/property.controller');
 const router = express.Router();
 
+router.use((req, res, next) => {
+  const start = Date.now();
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    logger.info(`[${req.method}] ${req.originalUrl} - ${res.statusCode} - ${duration}ms`);
+  });
+  next();
+});
+
 router.get('/', PropertyController.getAll);
 router.post('/', PropertyController.create);
 router.get('/:id', PropertyController.getById);

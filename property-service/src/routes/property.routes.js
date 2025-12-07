@@ -1,5 +1,6 @@
 const express = require('express');
 const PropertyController = require('../controllers/property.controller');
+const logger = require('../utils/logger'); // ★ Thêm dòng này
 const router = express.Router();
 
 router.use((req, res, next) => {

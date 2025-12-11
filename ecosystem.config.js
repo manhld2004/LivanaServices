@@ -3,6 +3,14 @@ module.exports = {
 
   apps: [
     {
+      name: "auth-service",
+      script: "./auth-service/index.js",
+      watch: true,
+      env: {
+        PORT: 3050
+      }
+    },
+    {
       name: "property-service-1",
       script: "./property-service/src/app.js",
       watch: true,
@@ -24,6 +32,22 @@ module.exports = {
       watch: true,
       env: {
         PORT: 3002
+      }
+    },
+    {
+      name: "booking-service",
+      script: "./booking-service/src/app.js",
+      watch: true,
+      env: {
+        PORT: 3010
+      }
+    },
+    {
+      name: "user-service",
+      script: "./user-service/src/app.js",
+      watch: true,
+      env: {
+        PORT: 3020
       }
     }
   ]
